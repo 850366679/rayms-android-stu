@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">My Android Study</string>
+  <string name="http_sync_request">同步请求</string>
+  <string name="http_async_request">异步请求</string>
+  <string name="http_async_get_request">异步Get请求</string>
+  <string name="http_async_post_request">异步Post请求</string>
+  <string name="okhttp_use">Okhttp使用</string>
 </resources>
