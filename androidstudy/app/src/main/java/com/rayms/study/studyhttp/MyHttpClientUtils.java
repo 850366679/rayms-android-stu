@@ -50,8 +50,8 @@ public class MyHttpClientUtils {
       int code = response.getStatusLine().getStatusCode();
       if (null != entity) {
         InputStream content = entity.getContent();
-        String resonse = converStreamToString(content);
-        System.out.println("请求状态码：" + code + "\n请求结果：\n" + resonse);
+        String str = converStreamToString(content);
+        System.out.println("请求状态码：" + code + "\n请求结果：\n" + str);
         content.close();
       }
     } catch (IOException e) {
@@ -59,7 +59,7 @@ public class MyHttpClientUtils {
     }
   }
 
-  private static String converStreamToString(InputStream is) throws IOException {
+  public static String converStreamToString(InputStream is) throws IOException {
     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(is));
     StringBuilder stringBuffer = new StringBuilder();
     String line;
