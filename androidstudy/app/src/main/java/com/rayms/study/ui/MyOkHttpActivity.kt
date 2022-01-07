@@ -1,28 +1,25 @@
 package com.rayms.study.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Message
-import android.util.Log.d
 import android.util.Log.i
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import com.rayms.study.R
 import okhttp3.Call
 import okhttp3.Callback
 import okhttp3.FormBody
-import okhttp3.OkHttp
 import okhttp3.OkHttpClient
 import okhttp3.Request
-
+import okhttp3.Response
 import java.io.IOException
 import java.util.concurrent.TimeUnit
-import okhttp3.Response
 
 /**
  * OkHttp简单实现页面
  */
 class MyOkHttpActivity : AppCompatActivity() {
-  private val TAG = "UseOkHttpActivity.class"
+  private val TAG = "MyOkHttpActivity.class"
   private val url = "https://www.baidu.com/"
 
   override fun onCreate(savedInstanceState: Bundle?) {

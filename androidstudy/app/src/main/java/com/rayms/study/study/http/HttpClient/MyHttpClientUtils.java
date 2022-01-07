@@ -1,4 +1,4 @@
-package com.rayms.study.studyhttp;
+package com.rayms.study.study.http.HttpClient;
 
 import java.io.BufferedReader;
 import java.io.IOException;

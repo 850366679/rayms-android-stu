@@ -1,24 +1,16 @@
-package com.rayms.study.studyhttp;
+package com.rayms.study.study.http.Conn;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
-import java.util.HashMap;
 import java.util.Map;
 
-public class HttpUrlConnectionUtils {
-
-  public static void main(String[] args) {
-    new Thread(() -> {
-      useHttUrlConnectionPost("http://ip.taobao.com/service/getIpInfo.php");
-    }).start();
-  }
+public class UrlConnManager {
 
   /**
    * 配置默认参数
@@ -40,6 +32,9 @@ public class HttpUrlConnectionUtils {
     return mHttpUrlConnection;
   }
 
+  /**
+   * 组装post请求参数
+   */
   public static void postParams(OutputStream output, Map<String, String> map) {
     try {
       StringBuilder mStringBuilder = new StringBuilder();
@@ -56,24 +51,6 @@ public class HttpUrlConnectionUtils {
       writer.write(mStringBuilder.toString());
       writer.flush();
       writer.close();
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-  }
-
-  private static void useHttUrlConnectionPost(String url) {
-    InputStream inputStream = null;
-    HttpURLConnection mHttpUrlConnection = getHttpUrlConnection(url);
-    try {
-      Map<String, String> map = new HashMap<>();
-      map.put("ip", "59.108.54.37");
-      postParams(mHttpUrlConnection.getOutputStream(), map);
-      mHttpUrlConnection.connect();
-      inputStream = mHttpUrlConnection.getInputStream();
-      int code = mHttpUrlConnection.getResponseCode();
-      String respose = MyHttpClientUtils.converStreamToString(inputStream);
-      System.out.println("请求状态码：" + code + "\n请求结果：\n" + respose);
-      inputStream.close();
     } catch (IOException e) {
       e.printStackTrace();
     }

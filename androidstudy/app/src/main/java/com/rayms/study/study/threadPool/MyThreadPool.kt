@@ -1,4 +1,4 @@
-package com.rayms.study.test
+package com.rayms.study.study.threadPool
 
 import java.util.concurrent.ArrayBlockingQueue
 import java.util.concurrent.SynchronousQueue
