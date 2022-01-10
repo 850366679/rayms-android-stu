@@ -24,6 +24,10 @@ public class MyHttpClientUtils {
         new ThreadPoolExecutor(0, 5, 60, TimeUnit.SECONDS, new SynchronousQueue<>());
     // 已经禁用了
     threadPoolExecutor.execute(() -> useHttpClientGet("www.baidu.com"));
+    int i = 0;
+    while ((i = 10) < 12) {
+
+    }
   }
 
   private static HttpClient createHttpClient() {

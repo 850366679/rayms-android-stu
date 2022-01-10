@@ -6,39 +6,77 @@
     android:padding="20dp"
     tools:context=".ui.MyOkHttpActivity"
     >
-
-  <LinearLayout
+  <ScrollView
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:orientation="vertical"
       >
-
-    <Button
-        android:id="@+id/btn_http_get"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onSyncClick"
-        android:text="@string/http_sync_request"
-        android:textSize="@dimen/btn_txt_size_16sp"
-        />
+        android:orientation="vertical"
+        >
 
-    <Button
-        android:id="@+id/btn_http_async_get"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="onAsyncGetClick"
-        android:text="@string/http_async_get_request"
-        android:textSize="@dimen/btn_txt_size_16sp"
-        />
+      <Button
+          android:id="@+id/btn_http_get"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:onClick="onSyncClick"
+          android:text="@string/http_sync_request"
+          android:textSize="@dimen/btn_txt_size_16sp"
+          />
 
-    <Button
-        android:id="@+id/btn_http_async_post"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="onAsyncPostClick"
-        android:text="@string/http_async_post_request"
-        android:textSize="@dimen/btn_txt_size_16sp"
-        />
+      <Button
+          android:id="@+id/btn_http_async_get"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:onClick="onAsyncGetClick"
+          android:text="@string/http_async_get_request"
+          android:textSize="@dimen/btn_txt_size_16sp"
+          />
 
-  </LinearLayout>
+      <Button
+          android:id="@+id/btn_http_async_post"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:onClick="onAsyncPostClick"
+          android:text="@string/http_async_post_request"
+          android:textSize="@dimen/btn_txt_size_16sp"
+          />
+
+      <Button
+          android:id="@+id/btn_http_post_file"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:onClick="onPostFileClick"
+          android:text="@string/async_post_file"
+          android:textSize="@dimen/btn_txt_size_16sp"
+          />
+
+      <Button
+          android:id="@+id/btn_http_download_file"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:onClick="onDownloadFileClick"
+          android:text="@string/async_download_file"
+          android:textSize="@dimen/btn_txt_size_16sp"
+          />
+
+      <ImageView
+          android:id="@+id/iv_okhttp"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:scaleType="centerInside"
+          />
+
+      <Button
+          android:id="@+id/btn_http_Multipart_file"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:onClick="onMultipartFileClick"
+          android:text="@string/multipart_pull_file"
+          android:textSize="@dimen/btn_txt_size_16sp"
+          android:textAllCaps="false"
+          />
+    </LinearLayout>
+  </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

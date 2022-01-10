@@ -2,8 +2,8 @@
   <string name="app_name">My Android Study</string>
   <string name="http_sync_request">同步请求</string>
   <string name="http_async_request">异步请求</string>
-  <string name="http_async_get_request">异步Get请求</string>
-  <string name="http_async_post_request">异步Post请求</string>
+  <string name="http_async_get_request">异步GET请求</string>
+  <string name="http_async_post_request">异步POST请求</string>
   <string name="okhttp_use">Okhttp使用</string>
   <string name="volley_use">Volley使用</string>
   <string name="string_request">StringRequest请求</string>
@@ -12,4 +12,7 @@
   <string name="image_request_imageloader">Image请求：ImageLoader</string>
   <string name="image_request_NetworkImageView">Image请求：NetworkImageView</string>
   <string name="networkimageview_tips">以下是NetworkImageView请求的图片</string>
+  <string name="async_post_file">异步上传文件</string>
+  <string name="async_download_file">异步下载文件</string>
+  <string name="multipart_pull_file">异步上传Multipart文件</string>
 </resources>
