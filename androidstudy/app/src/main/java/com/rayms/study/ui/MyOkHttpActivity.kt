@@ -7,10 +7,14 @@ import android.os.Handler
 import android.os.Looper
 import android.util.Log.i
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.rayms.study.R
+import com.rayms.study.study.http.okhttp.OkHttpEngine
+import com.rayms.study.study.http.okhttp.ResultCallback
 import kotlinx.android.synthetic.main.activity_use_okhttp.iv_okhttp
 import okhttp3.Cache
+import okhttp3.CacheControl
 import okhttp3.Call
 import okhttp3.Callback
 import okhttp3.FormBody
@@ -23,6 +27,9 @@ import okhttp3.Response
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
+import java.util.concurrent.Executors
+import java.util.concurrent.TimeUnit.MILLISECONDS
+import java.util.concurrent.TimeUnit.SECONDS
 
 /**
  * OkHttp简单实现页面
@@ -38,6 +45,7 @@ class MyOkHttpActivity : AppCompatActivity() {
   private val MEDIA_TYPE_MARK_DOWN = "text/x-markdown; charset=utf-8".toMediaTypeOrNull()
   private val MEDIA_TYPE_PNG = "image/png".toMediaTypeOrNull()
   private val mHandler = Handler(Looper.getMainLooper())
+  private val executor = Executors.newScheduledThreadPool(1)
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -65,7 +73,7 @@ class MyOkHttpActivity : AppCompatActivity() {
    * 异步get请求
    */
   fun onAsyncGetClick(view: View) {
-    val client = OkHttpClient.Builder().build()
+    val client = getClientWithCache()
     val request = Request.Builder().url(url).get().build()
     val call = client.newCall(request)
     call.enqueue(object : Callback {
@@ -254,13 +262,66 @@ class MyOkHttpActivity : AppCompatActivity() {
   /**
    * 设置缓存
    */
-  private fun setCache() {
-    val build = OkHttpClient.Builder()
-      .cache(
-        Cache(
-          File(getExternalFilesDir(null)?.path + "/okhttp_cache/"), 100 * 1024 * 1024
-        )
-      )
+  private fun getClientWithCache(): OkHttpClient {
+    val maxSize = 100 * 1024 * 1024L
+    return OkHttpClient.Builder()
+      .connectTimeout(15, SECONDS)
+      .callTimeout(15, SECONDS)
+      .writeTimeout(20, SECONDS)
+      .readTimeout(20, SECONDS)
+      .cache(Cache(externalCacheDir!!.absoluteFile, maxSize))
       .build()
+  }
+
+  /**
+   * 取消请求
+   */
+  fun onCancleRequestClick(view: View) {
+    // .cacheControl(CacheControl.FORCE_NETWORK) 设置每次请求都请求网络
+    val request = Request.Builder().url(url).cacheControl(CacheControl.FORCE_NETWORK).build()
+    val client = OkHttpClient.Builder().build()
+    val newCall = client.newCall(request)
+    // 1000ms的情况下，每次都能请求成功，但是设置更小的（100ms）请求就会被cancle
+    executor.schedule({
+      newCall.cancel()
+    }, 100, MILLISECONDS)
+    newCall.enqueue(object : Callback {
+      override fun onFailure(
+        call: Call,
+        e: IOException
+      ) {
+        i(TAG, "fail message: ${e.message}")
+      }
+
+      override fun onResponse(
+        call: Call,
+        response: Response
+      ) {
+        if (null != response.cacheResponse) {
+          i(TAG, "cache---: ${response.cacheResponse.toString()}")
+        } else {
+          i(TAG, "network---: ${response.networkResponse.toString()}")
+        }
+      }
+    })
+  }
+
+  /**
+   * 封装的OkHttpEngine  GET请求url
+   */
+  fun onGetByEngineClick(view: View) {
+    OkHttpEngine.getInstance(this).getAsyncHttp(url, object : ResultCallback() {
+      override fun onError(
+        request: Request,
+        e: Exception
+      ) {
+        i(TAG, "fail message: ${e.message}")
+      }
+
+      override fun onResponse(str: String) {
+        i(TAG, str)
+        Toast.makeText(applicationContext, "请求成功", Toast.LENGTH_SHORT).show()
+      }
+    })
   }
 }

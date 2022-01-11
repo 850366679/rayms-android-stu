@@ -15,4 +15,6 @@
   <string name="async_post_file">异步上传文件</string>
   <string name="async_download_file">异步下载文件</string>
   <string name="multipart_pull_file">异步上传Multipart文件</string>
+  <string name="cancle_request">取消请求</string>
+  <string name="okhttp_get_by_engine">封装OkHttp-GET</string>
 </resources>

@@ -20,7 +20,6 @@ public class HttpUrlConnectionUtils {
 
   /**
    * 发起请求
-   * @param url
    */
   private static void useHttUrlConnectionPost(String url) {
     InputStream inputStream = null;

@@ -77,6 +77,26 @@
           android:textSize="@dimen/btn_txt_size_16sp"
           android:textAllCaps="false"
           />
+
+      <Button
+          android:id="@+id/btn_cancle_request"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:onClick="onCancleRequestClick"
+          android:text="@string/cancle_request"
+          android:textSize="@dimen/btn_txt_size_16sp"
+          android:textAllCaps="false"
+          />
+
+      <Button
+          android:id="@+id/btn_get_by_engine"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:onClick="onGetByEngineClick"
+          android:text="@string/okhttp_get_by_engine"
+          android:textSize="@dimen/btn_txt_size_16sp"
+          android:textAllCaps="false"
+          />
     </LinearLayout>
   </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
