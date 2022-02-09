@@ -76,7 +76,7 @@ class MyVolleyActivity : AppCompatActivity() {
       println(it.toString())
       if (it.getInt("code") == 0) {
         val model = Gson().fromJson(it.toString(), IpModel::class.java)
-        println(model?.data?.city ?: "没有此参数")
+        // println(model?.data?.city ?: "没有此参数")
       }
     }, {
       println(it.message ?: "null")

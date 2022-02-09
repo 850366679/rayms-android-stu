@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.rayms.study.ui.MyOkHttpActivity
+import com.rayms.study.ui.MyRetrofitActivity
 import com.rayms.study.ui.MyVolleyActivity
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -32,5 +33,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         startActivity(Intent(this, MyVolleyActivity::class.java))
       }
     }
+  }
+
+  fun retrofitUseClick(view: View) {
+    startActivity(Intent(this, MyRetrofitActivity::class.java))
   }
 }

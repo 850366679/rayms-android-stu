@@ -30,6 +30,14 @@
                 android:text="@string/volley_use"
                 android:textSize="@dimen/btn_txt_size_16sp" />
 
+            <Button
+                android:id="@+id/btn_retrofit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/retrofit_use"
+                android:onClick="retrofitUseClick"
+                android:textSize="@dimen/btn_txt_size_16sp" />
+
         </LinearLayout>
     </ScrollView>
 

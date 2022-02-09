@@ -17,4 +17,6 @@
   <string name="multipart_pull_file">异步上传Multipart文件</string>
   <string name="cancle_request">取消请求</string>
   <string name="okhttp_get_by_engine">封装OkHttp-GET</string>
+  <string name="retrofit_use">retrofit使用</string>
+  <string name="retrofit_request">Retrofit网络请求</string>
 </resources>
