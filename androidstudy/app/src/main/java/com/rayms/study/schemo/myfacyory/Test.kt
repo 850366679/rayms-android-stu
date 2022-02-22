@@ -7,11 +7,13 @@ package com.rayms.study.schemo.myfacyory
  */
 
 fun main() {
-  val gdComputerFactory = GDComputerFactory()
-  val lenovoComputer = gdComputerFactory.createComputer(LenovoComputer::class.java)
-  lenovoComputer?.start()
-  val hpComputer = gdComputerFactory.createComputer(HpComputer::class.java)
-  hpComputer?.start()
-  val asusComputer = gdComputerFactory.createComputer(AsusComputer::class.java)
-  asusComputer?.start()
+  // val gdComputerFactory = GDComputerFactory()
+  // val lenovoComputer = gdComputerFactory.createComputer(LenovoComputer::class.java)
+  // lenovoComputer?.start()
+  // val hpComputer = gdComputerFactory.createComputer(HpComputer::class.java)
+  // hpComputer?.start()
+  // val asusComputer = gdComputerFactory.createComputer(AsusComputer::class.java)
+  // asusComputer?.start()
+
+  // SeatingStudents()
 }
