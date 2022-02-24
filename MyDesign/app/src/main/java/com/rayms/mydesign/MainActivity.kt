@@ -1,20 +1,29 @@
 package com.rayms.mydesign
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
-  private var btn: View? = null
+  private var btn: Button? = null
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
     btn = findViewById<Button>(R.id.btn_snackbar)
-    findViewById<Button>(R.id.btn_snackbar).setOnClickListener {
+    btn?.setOnClickListener {
       showSnackbar()
+    }
+    findViewById<Button>(R.id.btn_input).setOnClickListener {
+      startActivity(Intent(this, TextInputActivity::class.java))
+    }
+    findViewById<Button>(R.id.btn_custom).setOnClickListener {
+      startActivity(Intent(this, MyHorizontalActivity::class.java))
+    }
+    findViewById<Button>(R.id.btn_flow).setOnClickListener {
+      startActivity(Intent(this, MyFlowActivity::class.java))
     }
   }
 

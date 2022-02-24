@@ -10,6 +10,22 @@
       android:supportsRtl="true"
       android:theme="@style/Theme.MyDesign">
     <activity
+        android:name=".MyFlowActivity"
+        android:exported="false" />
+    <activity
+        android:name=".MyHorizontalActivity"
+        android:exported="false" />
+    <activity
+        android:name=".MyToolbarActivity"
+        android:exported="false"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+    <activity
+        android:name=".TestActivity"
+        android:exported="false" />
+    <activity
+        android:name=".MyAnimationActivity"
+        android:exported="false" />
+    <activity
         android:name=".TextInputActivity"
         android:exported="false" />
     <activity

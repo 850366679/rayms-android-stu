@@ -6,5 +6,40 @@
     android:layout_height="match_parent"
     tools:context=".TextInputActivity"
     >
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      >
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tie_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        >
+      <EditText
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:hint="username"
+          android:maxLength="20"
+          android:maxLines="1"
+          />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tie_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tie_username"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        >
+      <EditText
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:hint="password"
+          android:maxLength="20"
+          android:maxLines="1"
+          />
+    </com.google.android.material.textfield.TextInputLayout>
+  </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

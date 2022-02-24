@@ -8,4 +8,12 @@ class TextInputActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_text_input)
   }
+
+  override fun onStart() {
+    super.onStart()
+  }
+
+  override fun onResume() {
+    super.onResume()
+  }
 }
